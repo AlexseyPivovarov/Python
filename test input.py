@@ -11,7 +11,7 @@ for index in {0, 1}:
         if number[index] != "e":
             try:
                 number[index] = int(number[index])
-                whileStop = 1
+                break
             except:
                 print("you enter the wrong value, retry please")
         else:
