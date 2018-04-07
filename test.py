@@ -4,14 +4,14 @@ print("comparison of two numbers")
 number = []
 # input block
 stop = 0
-for index in {0, 1}:
+for index in range(1):
     whileStop = 0
     while whileStop == 0:
         number.insert(index, input('enter the number {} for comparison or "e" for exit: '.format(index + 1)))
         if number[index] != "e":
             try:
                 number[index] = int(number[index])
-                whileStop = 1
+                break
             except:
                 print("you enter the wrong value, retry please")
         else:
