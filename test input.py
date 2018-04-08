@@ -4,9 +4,10 @@ print("comparison of two numbers")
 number = []
 # input block
 stop = 0
+dynamicText = ['first', 'second']
 for index in range(2):
     while True:
-        number.insert(index, input('enter the number {} for comparison or "e" for exit: '.format(index + 1)))
+        number.insert(index, input('enter the {} number for comparison or "e" for exit: '.format(dynamicText[index])))
         if number[index] != "e":
             try:
                 number[index] = int(number[index])
