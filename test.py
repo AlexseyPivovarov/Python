@@ -1,19 +1,18 @@
-# comparison of two numbers
-print("comparison of two numbers")
+print("Определение четверти положения точки заданными координатами")
 # initialise variables
 number = []
 # input block
 stop = 0
-for index in range(1):
-    whileStop = 0
-    while whileStop == 0:
-        number.insert(index, input('enter the number {} for comparison or "e" for exit: '.format(index + 1)))
+dynamicText = ['x', 'y']
+for index in range(2):
+    while True:
+        number.insert(index, input('Введите координату {}, либо "e" для выхода: '.format(dynamicText[index])))
         if number[index] != "e":
             try:
-                number[index] = int(number[index])
+                number[index] = float(number[index])
                 break
             except:
-                print("you enter the wrong value, retry please")
+                print("Вы ввели некоректные данные, попытайтесь снова")
         else:
             stop = 1
             break
@@ -21,11 +20,27 @@ for index in range(1):
         break
 # output block
 if stop == 0:
-    if number[0] < number[1]:
-        print("The min is {}".format(number[0]))
-    elif number[0] > number[1]:
-        print("The min is {}".format(number[1]))
+    x1 = number[0]
+    y1 = number[1]
+    #print("Вы ввели А({},{})".format(x1, y1))
+    if x1 > 0:
+        if y1 > 0:
+            print("Ваша точка А({},{}) находится в первой четверти".format(x1, y1))
+        elif y1 < 0:
+            print("Ваша точка А({},{}) находится в четвертой четверти".format(x1, y1))
+        else:
+            print("Ваша точка А({},{}) находится на оси Y".format(x1, y1))
+    elif x1 < 0:
+        if y1 > 0:
+            print("Ваша точка А({},{}) находится во второй четверти".format(x1, y1))
+        elif y1 < 0:
+            print("Ваша точка А({},{}) находится в третей четверти".format(x1, y1))
+        else:
+            print("Ваша точка А({},{}) находится на оси Y".format(x1, y1))
     else:
-        print("There are equal")
-print("Done!")
+        if y1 != 0:
+            print("Ваша точка А({},{}) находится на оси X".format(x1, y1))
+        else:
+            print("Ваша точка А({},{}) находится в центре координат".format(x1, y1))
+print("Готово!")
 
