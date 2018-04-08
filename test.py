@@ -8,11 +8,15 @@ for index in range(2):
     while True:
         number.insert(index, input('Введите координату {}, либо "e" для выхода: '.format(dynamicText[index])))
         if number[index] != "e":
-            try:
-                number[index] = float(number[index])
+            if number[index].isdigit():
+                number[index] = int(number[index])
                 break
-            except:
-                print("Вы ввели некоректные данные, попытайтесь снова")
+            else:
+                try:
+                    number[index] = float(number[index])
+                    break
+                except:
+                    print("Вы ввели некоректные данные, попытайтесь снова")
         else:
             stop = 1
             break
@@ -22,7 +26,7 @@ for index in range(2):
 if stop == 0:
     x1 = number[0]
     y1 = number[1]
-    #print("Вы ввели А({},{})".format(x1, y1))
+    # print("Вы ввели А({},{})".format(x1, y1))
     if x1 > 0:
         if y1 > 0:
             print("Ваша точка А({},{}) находится в первой четверти".format(x1, y1))
