@@ -1,17 +1,17 @@
-print("Определение четверти положения точки заданными координатами")
-# initialise variables
-number = []
+print("Определение четвертей которые пересекает отрезок заданный двумя точками")
 # input block
+number = []
 stop = 0
-dynamicText = ['x', 'y']
-for index in range(2):
+dynamicText = ['x для первой', 'y для первой',
+               'x для второй', 'y для второй']
+for index in range(4):
     while True:
-        number.insert(index, input('Введите координату {}, либо "e" для выхода: '.format(dynamicText[index])))
+        number.insert(index, input('Введите координату {} точки, либо "e" для выхода: '.format(dynamicText[index])))
         if number[index] != "e":
-            if number[index].isdigit():
+            try:
                 number[index] = int(number[index])
                 break
-            else:
+            except:
                 try:
                     number[index] = float(number[index])
                     break
@@ -22,29 +22,43 @@ for index in range(2):
             break
     if stop == 1:
         break
-# output block
+# logical block
 if stop == 0:
+    # preparation for the loop
+    x = [number[0], number[2]]
+    y = [number[1], number[3]]
+    print("Вы ввели А({}, {}); B({}, {})".format(x[0], y[0], x[1], y[1]))
+    point = []
+    # positioning of points and set it to pointA and pointB
+    for index in [0, 1]:
+        if x[index] > 0:
+            if y[index] > 0:
+                point.insert(index, 1)
+            elif y[index] < 0:
+                point.insert(index, 4)
+            else:
+                point.insert(index, "+X")
+        elif x[index] < 0:
+            if y[index] > 0:
+                point.insert(index, 2)
+            elif y[index] < 0:
+                point.insert(index, 3)
+            else:
+                point.insert(index, "-X")
+        else:
+            if y[index] > 0:
+                point.insert(index, "+Y")
+            elif y[index] < 0:
+                point.insert(index, "-Y")
+            else:
+                point.insert(index, 0.0)
+    pointA = point[0]
+    pointB = point[1]
     x1 = number[0]
     y1 = number[1]
-    # print("Вы ввели А({},{})".format(x1, y1))
-    if x1 > 0:
-        if y1 > 0:
-            print("Ваша точка А({},{}) находится в первой четверти".format(x1, y1))
-        elif y1 < 0:
-            print("Ваша точка А({},{}) находится в четвертой четверти".format(x1, y1))
-        else:
-            print("Ваша точка А({},{}) находится на оси Y".format(x1, y1))
-    elif x1 < 0:
-        if y1 > 0:
-            print("Ваша точка А({},{}) находится во второй четверти".format(x1, y1))
-        elif y1 < 0:
-            print("Ваша точка А({},{}) находится в третей четверти".format(x1, y1))
-        else:
-            print("Ваша точка А({},{}) находится на оси Y".format(x1, y1))
-    else:
-        if y1 != 0:
-            print("Ваша точка А({},{}) находится на оси X".format(x1, y1))
-        else:
-            print("Ваша точка А({},{}) находится в центре координат".format(x1, y1))
+    x2 = number[2]
+    y2 = number[3]
+    print("pointA = {}, pointB = {}".format(pointA, pointB))
+    # comparison position of points
 print("Готово!")
 
