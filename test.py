@@ -6,16 +6,16 @@ dynamicText = ['x для первой', 'y для первой',
                'x для второй', 'y для второй']
 for index in range(4):
     while True:
-        number.insert(index, input('Введите координату {} точки, либо "e" для выхода: '.format(dynamicText[index])))
-        if number[index] == "e":
+        temp = input('Введите координату {} точки, либо "e" для выхода: '.format(dynamicText[index]))
+        if temp == "e":
             stop = 1
             break
         try:
-            number[index] = int(number[index])
+            number.insert(index, int(temp))
             break
         except:
             try:
-                number[index] = float(number[index])
+                number.insert(index, float(temp))
                 break
             except:
                 print("Вы ввели некоректные данные, попытайтесь снова")
@@ -23,11 +23,7 @@ for index in range(4):
         break
 # logical and output block
 if not stop:
-    x1 = number[0]
-    y1 = number[1]
-    x2 = number[2]
-    y2 = number[3]
-    # comparison position of line
+    x1, y1, x2, y2 = number
     text2 = "Отрезок"
     if x1 == x2 and y1 == y2:
         text2 = "Нулевой отрезок"
@@ -51,54 +47,42 @@ if not stop:
         print("{} находится на оси {}".format(text2, text4))
     else:
         # some magic
-        if not x1:
-            signX1 = int(x2 / abs(x2))
-        else:
-            signX1 = int(x1 / abs(x1))
-        if not y1:
-            signY1 = int(y2 / abs(y2))
-        else:
-            signY1 = int(y1 / abs(y1))
-        if not x2:
-            signX2 = int(x1 / abs(x1))
-        else:
-            signX2 = int(x2 / abs(x2))
-        if not y2:
-            signY2 = int(y1 / abs(y1))
-        else:
-            signY2 = int(y2 / abs(y2))
-        # print("signA({}, {}); signB({}, {})".format(signX1, signY1, signX2, signY2))
-        # text = "|что-то пошло нетак|"
-        if signX1 == signX2 and signY1 == signY2:
-            if signX1 == 1 and signY1 == 1:
+        for index in range(4):
+            if not number[index]:
+                number[index] = number[(index + 2) % 4]
+        signX, signY = number[0] / number[2], number[1] / number[3]
+        # если в одной четверти
+        if signX > 0 < signY:
+            if number[0] > 0 < number[1]:
                 text = "в первой"
-            elif signX1 == -1 and signY1 == 1:
+            elif number[0] < 0 < number[1]:
                 text = "во второй"
-            elif signX1 == -1 and signY1 == -1:
+            elif number[0] < 0 > number[1]:
                 text = "в третей"
             else:
                 text = "в четвертой"
             print("{} находится {} четверти".format(text2, text))
-        elif signX1 == signX2 and signY1 != signY2:
-            if signX1 == 1:
+        # если в смежных четвертях
+        elif signX > 0 > signY:
+            if number[0] > 0:
                 text = "первой и четвертой"
             else:
                 text = "второй и третей"
             print("Отрезок находится в смежных {} четвертях".format(text))
-        elif signX1 != signX2 and signY1 == signY2:
-            if signY1 == 1:
+        elif signX < 0 < signY:
+            if number[1] > 0:
                 text = "первой и второй"
             else:
                 text = "третей и четвертой"
             print("Отрезок находится в смежных {} четвертях".format(text))
+        # если отрезок в диагональных четвертях
         else:
-            # если отрезок в диагональных четвертях
             if y1 < 0:
                 x1, x2 = x2, x1
                 y1, y2 = y2, y1
             tgAB = (abs(x1) + abs(x2)) / (abs(y1) + abs(y2))
             tgAO = abs(x1) / abs(y1)
-            if signX1 == signY1:
+            if signX > 0:
                 text = "первой и третей"
                 if tgAB > tgAO:
                     text3 = "смежной второй четверти"
