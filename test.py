@@ -2,20 +2,18 @@ print("Определение четвертей которые пересека
 # input block
 number = []
 stop = 0
-dynamicText = ['x для первой', 'y для первой',
-               'x для второй', 'y для второй']
-for index in range(4):
+for dynamicText in ['x для первой', 'y для первой', 'x для второй', 'y для второй']:
     while True:
-        temp = input('Введите координату {} точки, либо "e" для выхода: '.format(dynamicText[index]))
+        temp = input('Введите координату {} точки, либо "e" для выхода: '.format(dynamicText))
         if temp == "e":
             stop = 1
             break
         try:
-            number.insert(index, int(temp))
+            number.append(int(temp))
             break
         except:
             try:
-                number.insert(index, float(temp))
+                number.append(float(temp))
                 break
             except:
                 print("Вы ввели некоректные данные, попытайтесь снова")
@@ -23,6 +21,7 @@ for index in range(4):
         break
 # logical and output block
 if not stop:
+    print(number)
     x1, y1, x2, y2 = number
     text2 = "Отрезок"
     if x1 == x2 and y1 == y2:
