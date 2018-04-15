@@ -1,101 +1,93 @@
-print("Определение четвертей которые пересекает отрезок заданный двумя точками")
-# input block
-number = []
+from os import system, name
+cls = "cls" if name == "nt" else "clear"
+from random import randint
+board = [
+    [" ", " ", " "],
+    [" ", " ", " "],
+    [" ", " ", " "]
+]
+chip = ["X", "O"]
+i = 0
+win = 0
 stop = 0
-for dynamicText in ['x для первой', 'y для первой', 'x для второй', 'y для второй']:
-    while True:
-        temp = input('Введите координату {} точки, либо "e" для выхода: '.format(dynamicText))
-        if temp == "e":
-            stop = 1
-            break
-        try:
-            number.append(int(temp))
-            break
-        except:
-            try:
-                number.append(float(temp))
-                break
-            except:
-                print("Вы ввели некоректные данные, попытайтесь снова")
-    if stop:
+computer = [0, 0]
+
+# start menu
+while True:
+    system(cls)
+    print("  1 2 3")
+    print("1 X|O|X   Выберите режим игры")
+    print(" -------  Игрок против игрока: 1")
+    print("2 O|X|O   Игрок 2 - компьютер: 2")
+    print(" -------  Игрок 1 - компьютер: 3")
+    print("3 X|O|X   Для выхода введите 'е'")
+    choise = input("Ваш выбор: ")
+    if choise == "e":
+        stop = 1
         break
-# logical and output block
+    elif choise == "1":
+        break
+    elif choise == "2":
+        computer[1] = 1
+        break
+    elif choise == "3":
+        computer[0] = 1
+        break
+
 if not stop:
-    print(number)
-    x1, y1, x2, y2 = number
-    text2 = "Отрезок"
-    if x1 == x2 and y1 == y2:
-        text2 = "Нулевой отрезок"
-    if not x1 and not y1 and not x2 and not y2:
-        print("{} находится в центре координат".format(text2))
-    elif not y1 and not y2:
-        if x1 >= 0 <= x2:
-            text4 = "OX"
-        elif x1 <= 0 >= x2:
-            text4 = "-OX"
+    while True:
+        gamer = i % 2
+        # interface
+        system(cls)
+        print("  1 2 3")
+        print("1 {0[0][0]}|{0[0][1]}|{0[0][2]}   Игрок: {1}".format(board, gamer + 1))
+        print(" -------  Фишка: {}".format(chip[gamer]))
+        print("2 {0[1][0]}|{0[1][1]}|{0[1][2]}   Для хода введите номера".format(board))
+        print(" -------  строки и столбца (например: 22)")
+        print("3 {0[2][0]}|{0[2][1]}|{0[2][2]}   Для выхода введите 'е'".format(board))
+
+        if win == 1:
+            print("Победил игрок {}".format(gamer + 1))
+            break
+        elif win == -1:
+            print("Ничья")
+            break
+        # input
+        if computer[gamer]:
+            while True:
+                x, y, = randint(0, 2), randint(0, 2)
+                if board[x][y] == " ":
+                    break
         else:
-            text4 = "X и проходит через центр"
-        print("{} находится на оси {}".format(text2, text4))
-    elif not x1 and not x2:
-        if y1 >= 0 <= y2:
-            text4 = "OY"
-        elif y1 <= 0 >= y2:
-            text4 = "-OY"
-        else:
-            text4 = "Y и проходит через центр"
-        print("{} находится на оси {}".format(text2, text4))
-    else:
-        # some magic
-        for index in range(4):
-            if not number[index]:
-                number[index] = number[(index + 2) % 4]
-        signX, signY = number[0] / number[2], number[1] / number[3]
-        # если в одной четверти
-        if signX > 0 < signY:
-            if number[0] > 0 < number[1]:
-                text = "в первой"
-            elif number[0] < 0 < number[1]:
-                text = "во второй"
-            elif number[0] < 0 > number[1]:
-                text = "в третей"
-            else:
-                text = "в четвертой"
-            print("{} находится {} четверти".format(text2, text))
-        # если в смежных четвертях
-        elif signX > 0 > signY:
-            if number[0] > 0:
-                text = "первой и четвертой"
-            else:
-                text = "второй и третей"
-            print("Отрезок находится в смежных {} четвертях".format(text))
-        elif signX < 0 < signY:
-            if number[1] > 0:
-                text = "первой и второй"
-            else:
-                text = "третей и четвертой"
-            print("Отрезок находится в смежных {} четвертях".format(text))
-        # если отрезок в диагональных четвертях
-        else:
-            if y1 < 0:
-                x1, x2 = x2, x1
-                y1, y2 = y2, y1
-            tgAB = (abs(x1) + abs(x2)) / (abs(y1) + abs(y2))
-            tgAO = abs(x1) / abs(y1)
-            if signX > 0:
-                text = "первой и третей"
-                if tgAB > tgAO:
-                    text3 = "смежной второй четверти"
-                elif tgAB < tgAO:
-                    text3 = "смежной четвертой четверти"
-                else:
-                    text3 = "проходит через центр"
-            else:
-                text = "второй и четвертой"
-                if tgAB > tgAO:
-                    text3 = "смежной первой четверти"
-                elif tgAB < tgAO:
-                    text3 = "смежной третей четверти"
-                else:
-                    text3 = "проходит через центр"
-            print("Отрезок находится в диагональных {} четвертях и {}".format(text, text3))
-print("Готово!")
+            xy = input("Ваш ход: ")
+            # checking input
+            if xy == "e":
+                break  # exit game
+            if len(xy) != 2:
+                continue
+            try:
+                x, y = int(xy[0])-1, int(xy[1])-1
+            except:
+                continue
+            if x > 2 or y > 2 or board[x][y] != " ":
+                continue
+        board[x][y] = chip[gamer]
+        # check for win
+        for index in [0, 1, 2]:
+            if board[index][0] == board[index][1] == board[index][2] != " ":
+                win = 1
+                continue
+            if board[0][index] == board[1][index] == board[2][index] != " ":
+                win = 1
+                continue
+        if win:
+            continue
+        if board[0][0] == board[1][1] == board[2][2] != " " or board[0][2] == board[1][1] == board[2][0] != " ":
+            win = 1
+            continue
+        i += 1
+        if i > 8:
+            i -= 1
+            win = -1
+            continue
+
