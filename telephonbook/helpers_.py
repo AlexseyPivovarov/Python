@@ -23,7 +23,7 @@ database = {
 #  --------------------------- словарь содержащий все текстовые выражения ---------------------------------------------
 sey = {
     "ru": {
-        "hi": "Вас приветствет телефонная книга версии 2.0!!!",
+        "hi": "Вас приветствует телефонная книга версии 2.0!!!",
         "help": "Для вызова данной справки введите '/п'\n"
                 "Для выхода из приложения - '/в'\n"
                 "Для смены языка - '/я'\n"
@@ -48,6 +48,7 @@ sey = {
                  "Для замены - номер поля, затем новые данные\n"
                  "Для удаления - номер поля, затем '/у'\n"
                  "Для выхода - 'в'",
+        "input2": "Ключ: ",
         "input": "Данные: ",
         "first_name": "имя",
         "second_name": "фамилия",
@@ -89,6 +90,7 @@ sey = {
                  "To replace - the field number, then the new data\n"
                  "To removing - the field number, then '/d'\n"
                  "To exit - 'e'",
+        "input2": "The key: ",
         "input": "Data: ",
         "first_name": "first name",
         "second_name": "second name",
@@ -321,7 +323,7 @@ def edit_contact(contact):
         #  --------------- запрос и обработка данных пользователя --------------
         func = ""
         while func == "" or not (func in restruct):
-            func = input(sey[lang]["enter"])
+            func = input(sey[lang]["input2"])
             if func == "в" or func == "e":
                 return
         arg = ""

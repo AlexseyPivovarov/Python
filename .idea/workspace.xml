@@ -2,18 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e70edcfd-d3eb-4c5e-9917-f867f4b94719" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/telephonbook/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/telephonbook/telephon_v1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/telephonbook/telephon_v2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/converter.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/counter v3.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/decorator.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ru_gen4.dic" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test2.py" beforeDir="false" afterPath="$PROJECT_DIR$/test2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/counter v2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/telephonbook/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/telephonbook/config.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/telephonbook/helpers_.py" beforeDir="false" afterPath="$PROJECT_DIR$/telephonbook/helpers_.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -27,8 +18,8 @@
       <file leaf-file-name="telephon_v2.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/telephonbook/telephon_v2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="92" column="57" selection-start-line="92" selection-start-column="29" selection-end-line="92" selection-end-column="57" />
+            <state relative-caret-position="926">
+              <caret line="102" column="22" lean-forward="true" selection-start-line="102" selection-start-column="22" selection-end-line="102" selection-end-column="22" />
               <folding>
                 <element signature="e#0#22#0" expanded="true" />
               </folding>
@@ -39,8 +30,8 @@
       <file leaf-file-name="helpers_.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/telephonbook/helpers_.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="501">
-              <caret line="334" column="26" lean-forward="true" selection-start-line="334" selection-start-column="26" selection-end-line="334" selection-end-column="26" />
+            <state relative-caret-position="5576">
+              <caret line="328" column="16" lean-forward="true" selection-start-line="328" selection-start-column="16" selection-end-line="328" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -453,7 +444,14 @@
       <option name="project" value="LOCAL" />
       <updated>1526254314330</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="16.04">
+      <created>1528069975013</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1528069975013</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TodoView">
@@ -469,12 +467,12 @@
     <frame x="-8" y="-8" width="1296" height="1010" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23125" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23125" />
       <window_info anchor="bottom" id="TODO" order="4" weight="0.32946634" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50078124" side_tool="true" weight="0.3299435" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.3299435" />
-      <window_info active="true" anchor="bottom" x="0" y="83" width="1280" height="817" id="Run" order="2" sideWeight="0.49921876" visible="true" weight="0.21564245" />
+      <window_info anchor="bottom" x="0" y="83" width="1280" height="817" id="Run" order="2" sideWeight="0.49921876" visible="true" weight="0.21564245" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32960895" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -733,8 +731,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/telephonbook/telephon_v2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="92" column="57" selection-start-line="92" selection-start-column="29" selection-end-line="92" selection-end-column="57" />
+        <state relative-caret-position="926">
+          <caret line="102" column="22" lean-forward="true" selection-start-line="102" selection-start-column="22" selection-end-line="102" selection-end-column="22" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
           </folding>
@@ -743,8 +741,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/telephonbook/helpers_.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="334" column="26" lean-forward="true" selection-start-line="334" selection-start-column="26" selection-end-line="334" selection-end-column="26" />
+        <state relative-caret-position="5576">
+          <caret line="328" column="16" lean-forward="true" selection-start-line="328" selection-start-column="16" selection-end-line="328" selection-end-column="16" />
         </state>
       </provider>
     </entry>
